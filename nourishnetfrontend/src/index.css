@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* grey */
+  --color-base-100: oklch(98% 0.003 247.858);
+  --color-base-200: oklch(96% 0.007 247.896);
+  --color-base-300: oklch(92% 0.013 255.508);
+  --color-base-content: oklch(20% 0.042 265.755);
+
+  /* Purple */
+  --color-primary: oklch(60% 0.25 292.717);
+  --color-primary-content: oklch(96% 0.016 293.756);
+
+  /* blue */
+  --color-secondary: oklch(62% 0.214 259.815);
+  --color-secondary-content: oklch(97% 0.014 254.604);
+
+  /* orange */
+  --color-accent: oklch(76% 0.188 70.08);
+  --color-accent-content: oklch(98% 0.022 95.277);
+/* black */
+  --color-neutral: oklch(37% 0.044 257.287);
+  --color-neutral-content: oklch(98% 0.003 247.858);
+
+  /* info  */
+  --color-info: oklch(71% 0.143 215.221);
+  --color-info-content: oklch(98% 0.019 200.873);
+
+  /* success */
+  --color-success: oklch(72% 0.219 149.579);
+  --color-success-content: oklch(98% 0.018 155.826);
+  /* warning */
+  --color-warning: oklch(79% 0.184 86.047);
+  --color-warning-content: oklch(98% 0.026 102.212);
+  /* error */
+  --color-error: oklch(65% 0.241 354.308);
+  --color-error-content: oklch(97% 0.014 343.198);
+
+  /* Border, Radius, and Layout Tokens */
+  --radius-selector: 1rem;
+  --radius-field: 2rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+}
