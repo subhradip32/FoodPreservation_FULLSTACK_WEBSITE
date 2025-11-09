@@ -5,7 +5,9 @@ function CreatePostDialog({ isOpen, onClose, onSubmit }) {
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        imageUrl: ''
+        imageUrl: '',
+        quantity:'', 
+        cost: ''
     });
 
     const handleSubmit = (e) => {
@@ -58,6 +60,26 @@ function CreatePostDialog({ isOpen, onClose, onSubmit }) {
                             value={formData.imageUrl}
                             onChange={(e) => setFormData({...formData, imageUrl: e.target.value})}
                             placeholder="Enter image URL"
+                            required
+                        />
+                    </div>
+                    <div className="flex justify-end gap-2 mb-4">
+                        <input
+                            type="number"
+                            id="quantity"
+                            className='w-full border rounded p-2'
+                            value={formData.quantity}
+                            onChange={(e) => setFormData({...formData, quantity: e.target.value})}
+                            placeholder='Quantity'
+                            required
+                        />
+                        <input
+                            type="number"
+                            id="cost"
+                            className="w-full p-2 border rounded"
+                            value={formData.cost}
+                            onChange={(e) => setFormData({...formData, cost: e.target.value})}
+                            placeholder="Cost of the product"
                             required
                         />
                     </div>

@@ -29,9 +29,12 @@ public class FoodPostController {
         String name = body.getOrDefault("name", "");
         String description = body.getOrDefault("description", "");
         String imageUrl = body.getOrDefault("imageUrl", "");
+        String quantity = body.getOrDefault("quantity", "");
+        String cost = body.getOrDefault("cost", "");
+
 
         
-        foodpost fp = new foodpost(name, description, imageUrl);
+        foodpost fp = new foodpost(name, description, imageUrl, quantity, cost);
         foodpostrepo.save(fp);
 
         return true;

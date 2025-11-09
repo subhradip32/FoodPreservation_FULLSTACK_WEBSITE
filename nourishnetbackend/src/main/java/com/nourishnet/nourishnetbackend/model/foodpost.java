@@ -17,15 +17,34 @@ public class foodpost {
     @Column(nullable =false)
     private String imageUrl;
 
-
+    private Integer quantity; 
+    private Integer cost; 
     
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
     public foodpost() {
     }
 
-    public foodpost(String name, String description, String imageUrl) {
+    public foodpost(String name, String description, String imageUrl, String quantity, String cost) {
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.quantity =Integer.parseInt(quantity);
+        this.cost =Integer.parseInt(cost);
     }
 
     // Getters and Setters
