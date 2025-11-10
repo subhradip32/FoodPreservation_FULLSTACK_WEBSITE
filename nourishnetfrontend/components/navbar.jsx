@@ -53,7 +53,7 @@ function Navbar() {
         <div className="flex items-center space-x-4 ml-auto">
           {username ? (
             <div className="flex items-center gap-5">
-              <ShoppingCart className="text-primary cursor-pointer" />
+              <ShoppingCart className="text-primary cursor-pointer" onClick={() => nav('/cart')} />
               <span className="text-primary font-semibold">{username}</span>
               <LogOut
                 onClick={handleLogout}

@@ -1,6 +1,31 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function ProductCard({ name, des, imgurl, quantity, cost }) {
+export default function ProductCard({ id, name, des, imgurl, quantity, cost }) {
+  const [adding, setAdding] = useState(false);
+  const nav = useNavigate();
+
+  function handleAddToCart() {
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+      nav("/login");
+      return;
+    }
+    setAdding(true);
+    fetch(`http://localhost:8080/api/cart/${userId}/add/${id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error("Failed to add to cart");
+        // Optionally show success message
+        alert("Added to cart!");
+      })
+      .catch(() => alert("Could not add to cart"))
+      .finally(() => setAdding(false));
+  }
+
   return (
     <motion.div
       className="bg-white rounded-2xl w-100 m-10 overflow-clip shadow-md hover:shadow-lg transition-shadow duration-300"
@@ -38,11 +63,16 @@ export default function ProductCard({ name, des, imgurl, quantity, cost }) {
           <button className="bg-accent px-4 py-2 rounded-full text-accent-content font-medium hover:opacity-90 transition">
             Buy Now
           </button>
-          <button className="bg-transparent hover:bg-primary border border-primary px-4 py-2 rounded-full text-primary hover:text-primary-content font-medium transition">
-            Add to Cart
+          <button
+            className="bg-transparent hover:bg-primary border border-primary px-4 py-2 rounded-full text-primary hover:text-primary-content font-medium transition"
+            onClick={handleAddToCart}
+            disabled={adding}
+          >
+            {adding ? "Adding..." : "Add to Cart"}
           </button>
         </div>
       </div>
     </motion.div>
   );
 }
+
